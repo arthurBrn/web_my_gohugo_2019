@@ -1,0 +1,58 @@
+<!-- Template for list of events 
+    Once done and working, try improving by doing some sort of a base of
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ partial "head.html" }}
+    <!-- Title of the concerned event with -->
+    <title>Title to chssange</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <header>
+                    <!-- Most likely the navbar, shall we do one specific for each "type" of thing on the site ? -->
+                    {{ partial "header.html" }}
+                </header>
+            </div>
+        </div>
+        <main class="main">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron">
+                        <h1>List of all our events </h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Three cards per row, we'll improve with card deck if we got time -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <!-- Place a placeholder image here -->
+                        <!-- <img src="" class="card-img" alt=""> -->
+                        <div class="card-body">
+                            <!-- This will be the title of our event -->
+                            <h2 class="card-title"> title to change</h2>
+                            <p>Put some info about the event, with truncate filter</p>
+                        </div>
+                        <div class="card-footer">
+                            <!-- Place the date in here with a filter-->
+                            date
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- <div class="row"> -->
+        <!-- {{ partial "footer.html" }} -->
+        <!-- </div> -->
+    </div>
+</body>
+
+</html>
