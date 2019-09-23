@@ -1,4 +1,4 @@
-<footer class="page-footer font-small blue pt-4">
+<footer class="page-footer font-small blue pt-4 mt-5">
     <div class="container-fluid text-center text-white text-md-left">
         <div class="row">
             <div class="col-md-6 mt-md-0 mt-3">
@@ -6,30 +6,20 @@
                 <p>Here you can use rows and columns to organize your footer content.</p>
             </div>
             <hr class="clearfix w-100 d-md-none pb-3">
-            <div class="col-md-3 mb-md-0 mb-3">
-                <h5 class="text-uppercase">About us</h5>
+            <div class="col-md-6 mb-md-0 mb-3">
+                <h5 class="text-uppercase">Contact</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#!">Adresse</a>
-                    </li>
-                    <li>
-                        <a href="#!">Goal</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-3 mb-md-0 mb-3">
-                <h5 class="text-uppercase">Something</h5>
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#!">Something</a>
-                    </li>
-                    <li>
-                        <a href="#!">Something</a>
+                        <a href="/contact">Contact us</a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
+    <!-- BOOTSTRAP JS -->
     {{ $js := "js/bootstrap.min.js" | absURL }}
     <link rel="stylesheet" href="{{ $js }}">
+    <!-- MDBOOTSTRAP JS -->
+    {{ $mdbjs := "mdb/js/mdb.min.js" | absURL }}
+    <link rel="stylesheet" href="{{ $mdbjs }}">
 </footer>

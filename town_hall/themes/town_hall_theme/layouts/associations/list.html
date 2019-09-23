@@ -1,0 +1,60 @@
+<!-- ASSOCIATIONS -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ partial "head.html" }}
+    <!-- Title of the concerned event with -->
+    <title>Title to change</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <header>
+                <!-- Most likely the navbar, shall we do one specific for each "type" of thing on the site ? -->
+                {{ partial "header.html" . }}
+            </header>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <main class="main">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron">
+                        <h1>List of all the associations </h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Three cards per row, we'll improve with card deck if we got time -->
+                {{ range .Data.Pages }} {{ if eq .Type "associations" }}
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="{{ .Params.photo }}" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <!-- This will be the title of our event -->
+                            <h2 class="card-title">
+                                {{ .Params.Title }} | {{ .Params.Domain }}
+                                <h2>
+                                    <p>{{ .Params.Description }}</p>
+                        </div>
+                        <div class="card-footer">
+                            {{ .Params.Adresse }}
+                        </div>
+                    </div>
+                </div>
+                {{ end }} {{ end }}
+            </div>
+        </main>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            {{ partial "footer.html" }}
+        </div>
+    </div>
+</body>
+
+</html>

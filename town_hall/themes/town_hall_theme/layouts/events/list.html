@@ -11,15 +11,15 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <header>
-                    <!-- Most likely the navbar, shall we do one specific for each "type" of thing on the site ? -->
-                    {{ partial "header.html" }}
-                </header>
-            </div>
+    <div class="row">
+        <div class="col-md-12">
+            <header>
+                <!-- Most likely the navbar, shall we do one specific for each "type" of thing on the site ? -->
+                {{ partial "header.html" . }}
+            </header>
         </div>
+    </div>
+    <div class="container-fluid">
         <main class="main">
             <div class="row">
                 <div class="col-md-12">
@@ -31,27 +31,32 @@
 
             <div class="row">
                 <!-- Three cards per row, we'll improve with card deck if we got time -->
+                {{ range .Data.Pages }} {{ if eq .Type "events" }}
                 <div class="col-md-4">
                     <div class="card">
-                        <!-- Place a placeholder image here -->
-                        <!-- <img src="" class="card-img" alt=""> -->
+                        <img src="https://via.placeholder.com/150" class="card-img" alt="events picture">
                         <div class="card-body">
                             <!-- This will be the title of our event -->
-                            <h2 class="card-title"> title to change</h2>
-                            <p>Put some info about the event, with truncate filter</p>
+                            <h2 class="card-title">{{ .Params.Title }}</h2>
+                            <p>{{ .Params.Description }}</p>
+                            <hr>
+                            <p class="lead">By : {{ .Params.Association }}</p>
+                            <p>{{ range .Params.Adresse }} {{ $address := print .address " " .postalCode " " .city " " .label }} {{ $address | safeHTML }} {{ end }}</p>
                         </div>
                         <div class="card-footer">
-                            <!-- Place the date in here with a filter-->
-                            date
+                            {{ $date := .Params.Date.Format "2006-01-02" }} {{ $date }}
                         </div>
                     </div>
                 </div>
+                {{ end }} {{ end }}
             </div>
-        </main>
 
-        <!-- <div class="row"> -->
-        <!-- {{ partial "footer.html" }} -->
-        <!-- </div> -->
+        </main>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ partial "footer.html" }}
+        </div>
     </div>
 </body>
 

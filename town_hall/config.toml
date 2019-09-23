@@ -5,3 +5,28 @@ theme = "town_hall_theme"
 themesDir = "./themes"
 
 
+[[menu.main]]
+    name =  "home"
+    url = "/"
+    weight = 1
+[[menu.main]]
+    name = "municipal council"
+    url = "/municipalCouncil"
+    weight = 2
+[[menu.main]]
+    name = "associations"
+    url = "/associations"
+    weight = 3
+[[menu.main]]
+    name = "events"
+    url = "/events"
+    weight = 4
+
+
+[params]
+    homeText = "Some text for test"
+    homeText2 = "Some more text"
+
+
+
+

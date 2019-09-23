@@ -4,20 +4,21 @@
 # archived > draft: true
 # =====
 
-title: "{{ replace .Name "-" " " | title }}"
+title: ""
 # Not sure about that
-adresse: [
-    adress: ""
-    postalCode: ""
-    city:
-    label:
-]
+adresse: 
+- address: ""
+- postalCode: "75000"
+- city: "Paris"
+- label: ""
+
 # Today's date at default 
 when: {{ .Date }}
 Description: ""
 # Can contain one or several photos, that might be stored in ressources, not sure either. 
 # So a tab or not, we'll have to loop.
-photo: []
+photo: 
+- 
 # true by default, true means never display the event
 draft: true
 important: false

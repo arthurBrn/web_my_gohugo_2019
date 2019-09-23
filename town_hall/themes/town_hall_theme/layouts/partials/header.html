@@ -1,41 +1,21 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <!-- <a class="navbar-brand" href="/">Home</a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li>
-                <a class="nav-link" href="/">home
-                            <span class="sr-only">(current)</span>
-                        </a>
+            {{ range .Site.Menus.main }}
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
             </li>
-            <li>
-                <a class="nav-link" href="#">Municipal council
-                        <span class="sr-only">(current)</span>
-                    </a>
-            </li>
-            <li>
-                <a class="nav-link" href="/posts">Associations
-                        <span class="sr-only">(current)</span>
-                    </a>
-            </li>
-            <!-- DROPDOWN WITH :
-                Events (all, past and future)
-                Upcoming events 
-                Archived events 
-                Calendar > all events on a calendar 
-            -->
-            <li class="nav-item active">
-                <a class="nav-link" href="/events">Events
-                        <span class="sr-only">(current)</span>
-                    </a>
-            </li>
-            <!-- Create an aside menu with : 
-                    a search bar throughout the site
-                    List of associations in the spotlight, with link to their single pages
-                Should this menu be in the navbar or not ? 
-                -->
+            {{ end }}
         </ul>
+
+        <form class="form-inline">
+            <div class="md-form my-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            </div>
+        </form>
     </div>
 </nav>

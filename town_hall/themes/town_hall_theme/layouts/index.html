@@ -1,9 +1,13 @@
 {{ define "main" }}
-
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <div class="jumbotron">
-            <h1>{{ .Title }}</h1>
+            <p>{{ .Site.Params.homeText }}</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="jumbotron">
+            <p>{{ .Site.Params.homeText2 }}</p>
         </div>
     </div>
 </div>
