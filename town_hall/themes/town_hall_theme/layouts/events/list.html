@@ -7,7 +7,7 @@
 <head>
     {{ partial "head.html" }}
     <!-- Title of the concerned event with -->
-    <title>Title to chssange</title>
+    <title>Events</title>
 </head>
 
 <body>
@@ -34,14 +34,14 @@
                 {{ range .Data.Pages }} {{ if eq .Type "events" }}
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="https://via.placeholder.com/150" class="card-img" alt="events picture">
+                        <img src="https://via.placeholder.com/150" class="card-img img-thumbnail img-fluid" alt="events picture">
                         <div class="card-body">
                             <!-- This will be the title of our event -->
                             <h2 class="card-title">{{ .Params.Title }}</h2>
                             <p>{{ .Params.Description }}</p>
                             <hr>
                             <p class="lead">By : {{ .Params.Association }}</p>
-                            <p>{{ range .Params.Adresse }} {{ $address := print .address " " .postalCode " " .city " " .label }} {{ $address | safeHTML }} {{ end }}</p>
+                            <p class="lead">At : {{ range .Params.Adresse }} {{ $address := print .address " " .postalCode " " .city " " .label }} {{ $address | safeHTML }} {{ end }}</p>
                         </div>
                         <div class="card-footer">
                             {{ $date := .Params.Date.Format "2006-01-02" }} {{ $date }}

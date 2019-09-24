@@ -3,16 +3,17 @@
 <html lang="en">
 
 <head>
+    <!-- HEAD from /partial -->
     {{ partial "head.html" }}
     <!-- Title of the concerned event with -->
-    <title>Title to change</title>
+    <title>Associations</title>
 </head>
 
 <body>
     <div class="row">
         <div class="col-md-12">
             <header>
-                <!-- Most likely the navbar, shall we do one specific for each "type" of thing on the site ? -->
+                <!-- NAVBAR from partial-->
                 {{ partial "header.html" . }}
             </header>
         </div>
@@ -28,30 +29,38 @@
             </div>
 
             <div class="row">
-                <!-- Three cards per row, we'll improve with card deck if we got time -->
-                {{ range .Data.Pages }} {{ if eq .Type "associations" }}
+                <!-- Go through all the pages of the website-->
+                {{ range .Data.Pages }}
+                <!-- Si le type de la page parcouru est associations -->
+                {{ if eq .Type "associations" }}
                 <div class="col-md-4">
-                    <div class="card">
-                        <img src="{{ .Params.photo }}" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <!-- This will be the title of our event -->
-                            <h2 class="card-title">
-                                {{ .Params.Title }} | {{ .Params.Domain }}
-                                <h2>
-                                    <p>{{ .Params.Description }}</p>
-                        </div>
-                        <div class="card-footer">
-                            {{ .Params.Adresse }}
+                    <div class="jumbotron">
+                        <div class="card">
+                            <img src="{{ .Params.photo }}" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <!-- This will be the title of our event -->
+                                <h2 class="card-title">
+                                    {{ .Params.Title }} | {{ .Params.Domain }}
+                                    <h2>
+                                        <p>{{ .Params.Description }}</p>
+                            </div>
+                            <div class="card-footer">
+                                {{ .Params.Adresse }}
+                            </div>
                         </div>
                     </div>
                 </div>
-                {{ end }} {{ end }}
+                <!-- FIn if -->
+                {{ end }}
+                <!-- Fin range -->
+                {{ end }}
             </div>
         </main>
     </div>
 
     <div class="row">
         <div class="col-md-12">
+            <!-- FOOTER W/ js/jquery from PARTIAL -->
             {{ partial "footer.html" }}
         </div>
     </div>

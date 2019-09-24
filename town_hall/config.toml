@@ -17,10 +17,40 @@ themesDir = "./themes"
     name = "associations"
     url = "/associations"
     weight = 3
-[[menu.main]]
+
+    # https://discourse.gohugo.io/t/how-to-create-multilevel-dropdown-menu-in-hugo/18373/4
+
+# EVENTS AND SUBCATEGORIE FOR EVENTS 
+[[ menu.main ]]
+    identifier = "events"
     name = "events"
     url = "/events"
+    weight = 4 
+
+[[ menu.main]]
+    parent = "events" 
+    name = "All events"
+    url = "/events"
+    weight = 1
+
+[[ menu.main]]
+    parent = "events" 
+    name = "Upcoming events"
+    url = "/events"
+    weight = 2
+
+[[ menu.main]]
+    parent = "events"
+    name = "Archived events"
+    url = "/something"
+    weight = 3
+
+[[ menu.main]]
+    parent = "events" 
+    name = "Calendar"
+    url = "/events"
     weight = 4
+
 
 
 [params]
