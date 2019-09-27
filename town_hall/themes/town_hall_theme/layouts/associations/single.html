@@ -1,0 +1,62 @@
+<!-- Template for single events -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ partial "head.html" . }}
+    <!-- Here we'll place the event title -->
+    <title>{{ .Title }}</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- NAVBAR -->
+        <div class="row">
+            <div class="col-md-12">
+                {{ partial "header.html" . }}
+            </div>
+        </div>
+        <!-- MAIN -->
+        <main class="main">
+            <div class="row">
+                <div class="col-md-3 mt-3">
+                    <!-- <div class="jumbotron"> -->
+                    <div class="card">
+                        <div class="view overlay">
+                            <img class="card-img-top" src="{{ .Params.Photo }}" alt="Card image cap">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body elegant-color white-text rounded-bottom">
+                            <a class="activator waves-effect mr-4"></a>
+                            <ul>
+                                <li>Domain : {{ .Params.Domain }}</li>
+                                <li>Address : {{ .Params.Adresse }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="col-md-9 mt-3">
+                    <div class="jumbotron">
+                        <h1>{{ .Title }}</h1>
+                        <hr class="hr-dark">
+                        <p>
+                            {{ .Description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER-->
+        <div class="row">
+            <div class="col-md-12">
+                {{ partial "footer.html" . }}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

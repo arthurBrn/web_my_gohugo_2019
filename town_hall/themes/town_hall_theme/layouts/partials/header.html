@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <!-- <a class="navbar-brand" href="/">Home</a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -23,7 +22,9 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <!-- On parcour tous les sous menus -->
                     {{ range .Children }}
-                    <a class="dropdown-item" href="{{ .URL }}">
+                    <!-- Recover the URL, concatenate it with a var parameter and the name of url to know how to display the page where we're going -->
+                    {{ $url := print .URL "?var=" .Name }}
+                    <a class="dropdown-item" href="{{ $url }}">
                         <!-- On affiche le nom des sous menus -->
                         {{ .Name }}</a>
                     <!-- range end -->

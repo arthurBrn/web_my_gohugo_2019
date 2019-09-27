@@ -1,0 +1,17 @@
+<div class="card">
+    <img src="https://via.placeholder.com/150" class="card-img img-thumbnail img-fluid" alt="events picture">
+    <div class="card-body">
+        <!-- This will be the title of our event -->
+        <h2 class="card-title">
+            <a href="{{ .Permalink }}">
+                {{ .Params.Title }}</h2>
+            </a>
+            <p>{{ .Params.Description }}</p>
+            <hr>
+            <p class="lead">By : {{ .Params.Association }}</p>
+            <p class="lead">At : {{ range .Params.Adresse }} {{ $address := print .address " " .postalCode " " .city " " .label }} {{ $address | safeHTML }} {{ end }}</p>
+    </div>
+    <div class="card-footer">
+        {{ $date := .Params.Date.Format "2006-01-02" }} {{ $date }}
+    </div>
+</div>

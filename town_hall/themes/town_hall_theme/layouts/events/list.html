@@ -5,7 +5,7 @@
 <html lang="en">
 
 <head>
-    {{ partial "head.html" }}
+    {{ partial "head.html" . }}
     <!-- Title of the concerned event with -->
     <title>Events</title>
 </head>
@@ -28,34 +28,68 @@
                     </div>
                 </div>
             </div>
+            <div class="jumbotron">
+                <div class="row">
 
-            <div class="row">
-                <!-- Three cards per row, we'll improve with card deck if we got time -->
-                {{ range .Data.Pages }} {{ if eq .Type "events" }}
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/150" class="card-img img-thumbnail img-fluid" alt="events picture">
-                        <div class="card-body">
-                            <!-- This will be the title of our event -->
-                            <h2 class="card-title">{{ .Params.Title }}</h2>
-                            <p>{{ .Params.Description }}</p>
-                            <hr>
-                            <p class="lead">By : {{ .Params.Association }}</p>
-                            <p class="lead">At : {{ range .Params.Adresse }} {{ $address := print .address " " .postalCode " " .city " " .label }} {{ $address | safeHTML }} {{ end }}</p>
-                        </div>
-                        <div class="card-footer">
-                            {{ $date := .Params.Date.Format "2006-01-02" }} {{ $date }}
-                        </div>
+                    <script>
+                        // We recover the full url 
+                        var url = window.location.href;
+                        console.log("url : " + window.location.href);
+
+                        // We recover the first index of var 
+                        var varPosition = url.search("=");
+                        console.log("= position: " + varPosition);
+
+                        // We recover the position of '%'
+                        var percentagePosition = url.search("%");
+                        console.log("percentage position : " + percentagePosition);
+
+                        // we recover the word we want 
+                        var modifiedUrl = url.slice(varPosition + 1, percentagePosition);
+                        console.log("final url : " + modifiedUrl);
+                        document.getElementById('urlValue').innerHTML(modifiedUrl);
+                    </script>
+
+                    <p>la</p>
+                    <p id="urlValue"></p>
+                    <!-- Three cards per row, we'll improve with card deck if we got time -->
+                    {{ range .Data.Pages }}
+                    <!-- If data pages is of type events -->
+                    {{ if eq .Type "events" }}
+
+                    <!-- Recover the date of the day -->
+                    {{ $currentDate := dateFormat "02 Jan 06" now }}
+                    <!-- Recover the date of the concerned event -->
+                    {{ $eventDate := dateFormat "02 Jan 06" .Params.When}}
+
+                    <!-- IF the current date is supperior to the date of the event -->
+                    {{ if gt $currentDate $eventDate }}
+                    <!-- Display the archvied events -->
+
+                    <!-- ELSE IF current date inferior to date of the event -->
+                    {{ else if gt $eventDate $currentDate }}
+                    <!-- Display the upcoming event -->
+                    Upcoming event
+                    <!-- end if gt  -->
+                    {{ end }}
+                    <!-- End of UPCOMING events -->
+
+                    <!-- Display ALL events -->
+                    <div class="col-md-4">
+                        {{ partial "eventCard.html" . }}
                     </div>
+                    <!-- End of display all events -->
+                    <!-- endif-->
+                    {{ end }}
+                    <!-- endrange -->
+                    {{ end }}
                 </div>
-                {{ end }} {{ end }}
             </div>
-
         </main>
     </div>
     <div class="row">
         <div class="col-md-12">
-            {{ partial "footer.html" }}
+            {{ partial "footer.html" . }}
         </div>
     </div>
 </body>

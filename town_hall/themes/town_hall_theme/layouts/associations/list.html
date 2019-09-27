@@ -40,7 +40,8 @@
                             <div class="card-body">
                                 <!-- This will be the title of our event -->
                                 <h2 class="card-title">
-                                    {{ .Params.Title }} | {{ .Params.Domain }}
+                                    <a href="{{ .URL }}">
+                                    {{ .Params.Title }} </a> | {{ .Params.Domain }}
                                     <h2>
                                         <p>{{ .Params.Description }}</p>
                             </div>

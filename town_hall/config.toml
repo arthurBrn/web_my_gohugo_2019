@@ -3,6 +3,9 @@ languageCode = "en-us"
 title = "Town Hall"
 theme = "town_hall_theme"
 themesDir = "./themes"
+phone = "0297010203"
+adresse = "San Francisco, CA 94126, USA"
+mail = "contact@contact.com"
 
 
 [[menu.main]]
@@ -18,8 +21,6 @@ themesDir = "./themes"
     url = "/associations"
     weight = 3
 
-    # https://discourse.gohugo.io/t/how-to-create-multilevel-dropdown-menu-in-hugo/18373/4
-
 # EVENTS AND SUBCATEGORIE FOR EVENTS 
 [[ menu.main ]]
     identifier = "events"
@@ -31,6 +32,7 @@ themesDir = "./themes"
     parent = "events" 
     name = "All events"
     url = "/events"
+    test = "grostest"
     weight = 1
 
 [[ menu.main]]
@@ -42,14 +44,20 @@ themesDir = "./themes"
 [[ menu.main]]
     parent = "events"
     name = "Archived events"
-    url = "/something"
+    url = "/events"
     weight = 3
 
 [[ menu.main]]
     parent = "events" 
-    name = "Calendar"
+    name = "Calendar events"
     url = "/events"
     weight = 4
+
+
+[[ menu.footer ]]
+    name = "Contact"
+    url = "/contact"
+    weight = 1
 
 
 

@@ -10,7 +10,7 @@
                 <h5 class="text-uppercase">Contact</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="/contact">Contact us</a>
+                        <a href="/contact"> contact</a>
                     </li>
                 </ul>
             </div>
@@ -24,6 +24,18 @@
     <!-- MDBOOTSTRAP JS -->
     {{ $mdbjs := "mdb/js/mdb.min.js" | absURL }}
     <link rel="stylesheet" href="{{ $mdbjs }}">
+
+    <!-- THE MDB SCRIPT FOR THE SIDE NAV -->
+    <script>
+        // SideNav Button Initialization
+        $(".button-collapse").sideNav();
+        // SideNav Scrollbar Initialization
+        var sideNavScrollbar = document.querySelector('.custom-scrollbar');
+        var ps = new PerfectScrollbar(sideNavScrollbar);
+    </script>
+    <!-- END OF SIDE NAV SCRIPT -->
+
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/59cb36667e.js" crossorigin="anonymous"></script>
 </footer>
